@@ -1,0 +1,51 @@
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+body {
+  background: #10141a;
+  color: #dfe2eb;
+  font-family: "Inter", sans-serif;
+}
+
+.font-headline {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.font-body {
+  font-family: "Inter", sans-serif;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.terminal-glow {
+  text-shadow: 0 0 8px rgba(111, 221, 120, 0.4);
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #10141a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #31353c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6fdd78;
+}
