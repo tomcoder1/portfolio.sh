@@ -1,89 +1,31 @@
-/*
-Source adapted from:
-https://github.com/patrickoliveras/js-text-donut/blob/master/main.js
-*/
-function mountDonut() {
-  const canvas = document.querySelector("#donut-frame");
-
-  if (!canvas) {
-    return;
-  }
-
-  const isSmallViewport = window.innerWidth < 768;
-  const canvasWidth = isSmallViewport ? 54 : 80;
-  const canvasHeight = isSmallViewport ? 22 : 24;
-  const canvasArea = canvasHeight * canvasWidth;
-  const yOffset = Math.floor(canvasHeight / 2);
-  const xOffset = Math.floor(canvasWidth / 2);
-  const innerRadius = 2;
-  const r1Points = 90;
-  const r2Points = 314;
-  const fov = 5;
-  const scale = isSmallViewport ? 20 : 30;
-  let angleA = 0;
-  let angleB = 0;
-  const shades = ".,-~:;=!*#$@".split("");
-  let intervalId = null;
-
-  const render = () => {
-    const charBuffer = Array(canvasArea).fill(" ");
-    const zBuffer = Array(canvasArea).fill(0);
-
-    for (let j = 0; j < 6.28; j += 6.28 / r1Points) {
-      for (let i = 0; i < 6.28; i += 6.28 / r2Points) {
-        const c = Math.sin(i);
-        const d = Math.cos(j);
-        const e = Math.sin(angleA);
-        const f = Math.sin(j);
-        const g = Math.cos(angleA);
-        const h = d + innerRadius;
-        const depth = 1 / (c * h * e + f * g + fov);
-        const l = Math.cos(i);
-        const m = Math.cos(angleB);
-        const n = Math.sin(angleB);
-        const t = c * h * g - f * e;
-        const x = (xOffset + scale * depth * (l * h * m - t * n)) << 0;
-        const y = (yOffset + (scale / 2) * depth * (l * h * n + t * m)) << 0;
-        const offset = (x + canvasWidth * y) << 0;
-        const shadeConstant = (((shades.length + 1) * 2) / 3) << 0;
-        const shadeIndex =
-          (shadeConstant *
-            ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n)) <<
-          0;
-
-        if (canvasHeight > y && y > 0 && x > 0 && canvasWidth > x && depth > zBuffer[offset]) {
-          zBuffer[offset] = depth;
-          charBuffer[offset] = shades[shadeIndex > 0 ? shadeIndex : 0];
-        }
-      }
-    }
-
-    let html = "";
-    let line = [];
-
-    for (let k = 0; k < canvasArea + 1; k += 1) {
-      if (k % canvasWidth) {
-        line.push(charBuffer[k]);
-      } else {
-        html += line.join("") + "<br />";
-        line = [];
-      }
-
-      angleA += 0.00004;
-      angleB += 0.00002;
-    }
-
-    canvas.innerHTML = html;
-  };
-
-  render();
-  intervalId = window.setInterval(render, 17);
-
-  window.addEventListener("beforeunload", () => {
-    if (intervalId) {
-      window.clearInterval(intervalId);
-    }
-  });
-
-  window.addEventListener("resize", () => window.location.reload());
-}
+                        eval(`var{sin:A,
+                  cos:B,sqrt:C,pow:D,round:E,c
+              eil:F,PI:_a}=Math,G=(x,y,z,X,Y,Z)=>{
+            var a=B(Y),b=B(Z),c=B(X),d=A(Z),e=A(X),f
+          =A(Y),C=e*f,D=c*f;return[x*a*b+y*(-C*b+c*d)+
+        z*(D*b+e*d),-x*a*d+y*(C*d+c*b)+z*(-D*d+e*b),-x*f
+      -y*e*a+z*c*a];},H=(w,h)=>{var b=[];while(h){b.push(n
+    ew Array(w).fill(0));h--;}return b;};_b = document.query
+    Selector("canvas").getContext("2d"),_c=_a/2,_d=15,_e=_d*
+  0.55,_f=0,_g=0,_h=_c/3,_i=H(F(500/_e),F(500/_d)),_j=H(F(500/
+  _e),F(500/_d)),draw=_=>{let a=2*_a;while(a>0) {let b=2*_a;wh
+  ile(b>0){var[c,d,e]=G((30*B(b)*B(a)+2*B(a)*30)/2,(30*B(b)*A(
+a)+2*A(a)*30)/2,30*A(b)/2,_f        ,_g,_h),[f,g,h]=G(B(b)*B(a),
+B(b)*A(a),A(b),_f,_g,_h),i            =1/C(D(120-c,2)+D(0-d,2)+D
+(0-e,2)),j=f*B(_c/2)*B(_                a/3)+g*B(_c/2)*A(_a/3)+h
+*A(_c/2),k=(d*350)/(120-                c),l=-(e*350)/(120-c),m=
+E((250 + k) / _e),n=E((2                50 + l)/_d);if(_i[n][m]<
+i){_i[n][m]=i;_j[n][m]=(                j+1)/2;}b-=_a*2/60}a-=_a
+*2/150;}_f+=0.01;_g+=0;_h+            =0.01;_b.fillStyle="black"
+;_b.fillRect(0,0,500,500);_j        .forEach((a,y)=>a.forEach((b
+  ,x)=>{_b.font=\`\$\{_d\}px Consolas\`;_b.fillStyle='white';_
+  b.fillText(" .,-~:;!=*#$@"[E(b*12)],x*_e,y*_d);_i[y][x]=0;_j
+  [y][x]=0;}));};setInterval(draw,50/3);`.replaceAll("\n","").
+    replaceAll("  ",""));/*---------------------------------
+    --------------------------------------------------------
+      ----------------------------------------------------
+        ------------------------------------------------
+          --------------------------------------------
+            ----------------------------------------
+                --------------------------------
+                      ------------------*/

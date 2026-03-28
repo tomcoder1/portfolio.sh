@@ -1,9 +1,3 @@
-# Projects Template
-
-The projects section lives in [index.html](c:\Users\ptomm\Documents\Codes\portfolio\index.html).
-
-Right now it contains one placeholder card. To add a real project, copy the template below and paste it inside the projects grid:
-
 ```html
 <div class="group flex h-full flex-col border border-[#3e4a3d]/40 bg-[#181c22] transition-all hover:border-[#6fdd78]/50">
   <div class="relative h-48 overflow-hidden bg-[#31353c]">
