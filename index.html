@@ -16,30 +16,30 @@
   >
   <link rel="stylesheet" href="styles/site.css">
 </head>
-<body class="selection:bg-[#6fdd78] selection:text-[#00390e]">
-  <header class="fixed top-0 z-50 flex w-full items-center justify-between rounded-t-sm bg-[#1c2128] px-4 py-2 shadow-[0_0_40px_rgba(111,221,120,0.08)]">
+<body class="bg-[#040404] selection:bg-[#6fdd78] selection:text-[#00390e]">
+  <header class="fixed top-0 z-50 flex w-full items-center justify-between border-b border-white/5 bg-[#040404]/80 px-4 py-2 backdrop-blur-sm">
     <div class="flex items-center space-x-6">
-      <div class="font-mono font-bold text-[#6fdd78] before:mr-2 before:text-red-500 before:content-['\25cf_\25cf_\25cf_']">
+      <div class="font-mono font-bold text-[#6fdd78]">
         portfolio.sh
       </div>
       <nav class="hidden space-x-4 md:flex">
-        <a class="border-b-2 border-[#6fdd78] pb-1 font-['Space_Grotesk'] text-sm uppercase tracking-widest text-[#6fdd78] md:text-base" href="#">
+        <a class="nav-link border-b-2 border-[#6fdd78] pb-1 font-['Space_Grotesk'] text-sm uppercase tracking-widest text-[#6fdd78] md:text-base" href="#root" data-section="root">
           root
         </a>
-        <a class="font-['Space_Grotesk'] text-sm uppercase tracking-widest text-[#dfe2eb] transition-colors hover:text-[#6fdd78] md:text-base" href="#stack">
-          ABOUT
+        <a class="nav-link border-b-2 border-transparent pb-1 font-['Space_Grotesk'] text-sm uppercase tracking-widest text-[#dfe2eb] transition-colors hover:text-[#6fdd78] md:text-base" href="#about" data-section="about">
+          about
         </a>
-        <a class="font-['Space_Grotesk'] text-sm uppercase tracking-widest text-[#dfe2eb] transition-colors hover:text-[#6fdd78] md:text-base" href="#projects">
+        <a class="nav-link border-b-2 border-transparent pb-1 font-['Space_Grotesk'] text-sm uppercase tracking-widest text-[#dfe2eb] transition-colors hover:text-[#6fdd78] md:text-base" href="#projects" data-section="projects">
           projects
         </a>
       </nav>
     </div>
   </header>
 
-  <main class="mx-auto max-w-7xl space-y-24 px-6 pb-12 pt-20">
-    <section class="grid min-h-[716px] grid-cols-1 items-center gap-12 md:grid-cols-2">
-      <div class="flex aspect-square items-center justify-center rounded-lg border border-[#3e4a3d]/20 bg-[#0a0e14] p-6 md:aspect-auto md:p-8">
-        <pre id="donut-frame" class="terminal-glow min-h-[280px] select-none overflow-hidden text-center font-mono text-[7px] leading-[1] text-[#6fdd78] sm:text-[8px] md:text-[10px]" aria-label="Animated ASCII donut"></pre>
+  <main class="mx-auto max-w-7xl space-y-24 px-6 pb-40 pt-20">
+    <section class="grid min-h-[716px] scroll-mt-24 grid-cols-1 items-center gap-12 md:grid-cols-2" id="root">
+      <div class="flex aspect-square items-center justify-center md:aspect-auto">
+        <canvas id="donut-canvas" width="500" height="500" class="max-w-full h-auto" aria-label="Animated donut"></canvas>
       </div>
 
       <div class="space-y-6">
@@ -51,9 +51,6 @@
           <span class="ml-1 h-5 w-2 bg-[#6fdd78] cursor-blink"></span>
         </div>
         <div class="flex flex-wrap gap-4 pt-4">
-          <a class="group flex items-center bg-gradient-to-r from-[#6fdd78] to-[#34a547] px-6 py-2 font-mono text-sm uppercase tracking-wider text-[#00390e]" href="#">
-            CONTACT_ME <span class="ml-2 transition-transform group-hover:translate-x-1">_</span>
-          </a>
           <div class="flex items-center space-x-4 px-4">
             <a class="text-[#889484] transition-colors hover:text-[#6fdd78]" href="https://github.com/tomcoder1" target="_blank" rel="noreferrer" aria-label="GitHub">
               <svg aria-hidden="true" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
@@ -78,7 +75,7 @@
       </div>
     </section>
 
-    <section class="space-y-8" id="stack">
+    <section class="min-h-[55vh] scroll-mt-24 space-y-8 pt-8" id="about">
       <div class="flex items-center space-x-4">
         <h2 class="font-mono text-2xl font-bold tracking-tight text-[#6fdd78]">&gt; $ cat about.txt</h2>
         <div class="h-[2px] flex-grow bg-[#262a31]"></div>
@@ -92,17 +89,17 @@
       </div>
     </section>
 
-    <section class="space-y-12" id="projects">
+    <section class="min-h-[65vh] scroll-mt-24 space-y-12 pt-8" id="projects">
       <div class="flex items-center space-x-4">
         <h2 class="font-mono text-2xl font-bold tracking-tight text-[#6fdd78]">&gt; $ ls -la projects/</h2>
         <div class="h-[2px] flex-grow bg-[#262a31]"></div>
       </div>
       <div class="grid grid-cols-1 gap-8">
-        <div class="group flex h-full flex-col border border-[#3e4a3d]/40 bg-[#181c22] transition-all hover:border-[#6fdd78]/50">
-          <div class="flex min-h-[220px] items-center justify-center bg-[#0a0e14] p-8">
+        <div class="flex h-full flex-col border border-[#6fdd78]/50 bg-[#040404]">
+          <div class="flex min-h-[220px] items-center justify-center bg-[#040404] p-8">
             <div class="text-center">
               <div class="mb-4 font-mono text-sm text-[#889484]">project://updating</div>
-              <h3 class="font-headline text-3xl font-bold text-[#dfe2eb] transition-colors group-hover:text-[#6fdd78]">
+              <h3 class="font-headline text-3xl font-bold text-[#dfe2eb]">
                 Soon to be updated
               </h3>
             </div>
@@ -112,7 +109,7 @@
     </section>
   </main>
 
-  <footer class="fixed bottom-0 left-0 z-50 flex h-8 w-full items-center justify-start border-t-2 border-[#1c2128] bg-[#1c2128] px-4">
+  <footer class="fixed bottom-0 left-0 z-50 flex h-8 w-full items-center justify-start border-t border-white/5 bg-[#040404]/80 px-4 backdrop-blur-sm">
     <div class="flex h-full items-center font-mono text-[10px] uppercase tracking-tighter">
       <div class="flex h-full items-center bg-[#6fdd78] px-3 text-[#10141a]">
         <span class="material-symbols-outlined mr-1 text-xs">schema</span>
@@ -122,7 +119,47 @@
   </footer>
   <script src="scripts/donut.js"></script>
   <script>
-    mountDonut();
+    const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+    const sections = navLinks
+      .map((link) => document.getElementById(link.dataset.section))
+      .filter(Boolean);
+
+    const setActiveSection = (sectionId) => {
+      navLinks.forEach((link) => {
+        const isActive = link.dataset.section === sectionId;
+        link.classList.toggle("text-[#6fdd78]", isActive);
+        link.classList.toggle("border-[#6fdd78]", isActive);
+        link.classList.toggle("text-[#dfe2eb]", !isActive);
+        link.classList.toggle("border-transparent", !isActive);
+      });
+    };
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const targetSection = document.getElementById(link.dataset.section);
+        targetSection?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleSection) {
+          setActiveSection(visibleSection.target.id);
+        }
+      },
+      {
+        rootMargin: "-25% 0px -45% 0px",
+        threshold: [0.2, 0.4, 0.6]
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    setActiveSection("root");
   </script>
 </body>
 </html>

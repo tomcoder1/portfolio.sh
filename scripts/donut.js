@@ -16,7 +16,7 @@ B(b)*A(a),A(b),_f,_g,_h),i            =1/C(D(120-c,2)+D(0-d,2)+D
 *A(_c/2),k=(d*350)/(120-                c),l=-(e*350)/(120-c),m=
 E((250 + k) / _e),n=E((2                50 + l)/_d);if(_i[n][m]<
 i){_i[n][m]=i;_j[n][m]=(                j+1)/2;}b-=_a*2/60}a-=_a
-*2/150;}_f+=0.01;_g+=0;_h+            =0.01;_b.fillStyle="black"
+*2/150;}_f+=0.01;_g+=0;_h+            =0.01;_b.fillStyle="#040404"
 ;_b.fillRect(0,0,500,500);_j        .forEach((a,y)=>a.forEach((b
   ,x)=>{_b.font=\`\$\{_d\}px Consolas\`;_b.fillStyle='white';_
   b.fillText(" .,-~:;!=*#$@"[E(b*12)],x*_e,y*_d);_i[y][x]=0;_j
